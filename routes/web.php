@@ -19,5 +19,6 @@ Route::get('/', function () {
 
 Route::view('welcome','welcome')->name('welcome');
 Route::view('usuarios','adm.users.index')->name('adm.user.index');
+Route::view('usuarios/create','adm.users.create')->name('adm.user.create');
 Route::view('home','adm.home.index')->name('adm.home.index');
 Route::view('config','adm.config.index')->name('adm.config.index');
