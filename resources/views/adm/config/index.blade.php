@@ -2,7 +2,7 @@
 @section('title', 'Users')
 @section('content')
     <div>
-        <div class="grid grid-cols-12 bg-gray-900">
+        <div class="grid grid-cols-12  mt-20">
             <div class="col-end-12">
                 <x-button url="adm.config.index">Cadastrar</x-button>
             </div>

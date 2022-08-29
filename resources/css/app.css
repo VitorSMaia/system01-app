@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+thead > tr {
+   @apply bg-gray-200 text-gray-600 uppercase text-sm leading-normal
+}
+
+thead > tr > th {
+    @apply py-3 px-6
+}
+
+tbody {
+    @apply text-gray-600 text-sm font-light
+}
+
+tbody > tr  {
+    @apply border-b border-gray-200 hover:bg-gray-100
+}
+
+tbody > tr > td {
+    @apply py-3 px-6 whitespace-nowrap
+}
+
+.jv-purple-status {
+   @apply bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs font-medium
+}
+
+.jv-green-status {
+    @apply bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs font-medium
+}
+
+form {
+    @apply text-gray-700
+}
+.jv-card {
+    @apply  w-max  rounded-2xl p-10 shadow-2xl
+}
+
+.jv-title {
+    @apply col-span-12 text-gray-800 font-bold text-2xl
+}
+.jv-subtitle {
+    @apply col-span-12 text-sm font-normal text-gray-600
+}

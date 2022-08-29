@@ -1,8 +1,8 @@
-<div class="h-screen w-screen flex">
+<div class="h-screen w-screen flex ">
     <!-- container -->
 
     <aside
-        class="flex flex-col items-center bg-white text-gray-700 shadow h-full">
+        class="flex flex-col items-center bg-white text-gray-700 shadow-xl h-full ">
         <!-- Side Nav Bar-->
 
         <div class="h-16 flex items-center w-full">
