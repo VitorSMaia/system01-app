@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Adm\Users;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Form extends Component
@@ -21,7 +22,16 @@ class Form extends Component
 
     public function save()
     {
+
         $this->validate();
+        User::create([
+            'first_name' => $this->state['first_name'],
+            'last_name' => $this->state['last_name'],
+            'cpf' => $this->state['cpf'],
+            'password' => $this->state['password'],
+            'email' => $this->state['email'],
+        ]);
+        $this->redirectRoute('adm.user.index');
     }
 
     public function render()
