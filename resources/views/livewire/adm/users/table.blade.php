@@ -20,7 +20,7 @@
                         {{ $itemUser['cpf'] }}
                     </td>
                     <td class="text-center">
-                        {{ $itemUser['office'] }}
+                        {{ $itemUser['position']['name'] }}
                     </td>
                     <td class="text-center">
                         {{ $itemUser['email'] }}
@@ -33,6 +33,10 @@
                             <span wire:click="delete({{$itemUser['id']}})"
                                 class="material-symbols-outlined cursor-pointer">
                                 delete
+                            </span>
+                            <span wire:click="edit({{$itemUser['id']}})"
+                                  class="material-symbols-outlined cursor-pointer">
+                                edit
                             </span>
 
                         </div>

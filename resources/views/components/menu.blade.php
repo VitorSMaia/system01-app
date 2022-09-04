@@ -1,8 +1,8 @@
-<div class="h-screen w-screen flex ">
+<div class="flex"   x-data="{ open: false }">
     <!-- container -->
 
-    <aside
-        class="flex flex-col items-center bg-white text-gray-700 shadow-xl h-full ">
+    <div
+        class="flex flex-col min-h-screen items-center bg-white text-gray-700 shadow-xl">
         <!-- Side Nav Bar-->
 
         <div class="h-16 flex items-center w-full">
@@ -42,12 +42,15 @@
 
             <li class="hover:bg-gray-100">
                 <a
-                    href="{{ route('adm.config.index') }}"
-                    class="h-16 px-6 flex flex justify-center items-center w-full
+                    x-on:click="open = ! open"
+                    @click.outside="open = false"
+{{--                    href="{{ route('adm.config.index') }}"--}}
+                    class="h-16 px-6 flex flex justify-center items-center w-full cursor-pointer
                         focus:text-orange-500 {{ Route::currentRouteName() === 'adm.config.index' ? 'text-orange-500' : 'text-black' }}">
                     <span class="material-symbols-outlined">
                         settings
                     </span>
+
                 </a>
             </li>
 
@@ -66,8 +69,23 @@
             </a>
         </div>
 
-    </aside>
-    <div class="grow overflow-hidden">
+    </div>
+    <div  class="absolute flex flex-col flex justify-center items-center">
+        <div class="h-48"></div>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100"
+             x-transition:enter-start="transform opacity-0 scale-95"
+             x-transition:enter-end="transform opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-75"
+             x-transition:leave-start="transform opacity-100 scale-100"
+             x-transition:leave-end="transform opacity-0 scale-95"
+             class="flex flex-col justify-center bg-gray-100 w-full rounded rounded-b-lg">
+            <a href="{{ route('adm.position.index') }}" class="hover:bg-gray-200 px-2 w-full">Cargos</a>
+            <a href="{{ route('login') }}" class="hover:bg-gray-200 px-2 w-full">Setores</a>
+            <a href="{{ route('login') }}" class="hover:bg-gray-200  hover:rounded-b-lg px-2 w-full">Empresas</a>
+        </div>
+
+    </div>
+    <div class="grow">
         {{ $slot }}
     </div>
 </div>

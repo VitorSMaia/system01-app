@@ -18,13 +18,13 @@
                     @error('state.cpf') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-span-12 md:col-span-3">
-                    <x-inputs.select wire:model.defer="state.office" icon="style" placeholder="Cargo">
-                        <option value="Analista">Analista</option>
-                        <option value="Desenvolvedor Jr">Desenvolvedor Jr</option>
-                        <option value="Desenvolvedor Pl">Desenvolvedor Pl</option>
-                        <option value="Desenvolvedor Sr">Desenvolvedor Sr</option>
+                    <x-inputs.select wire:model.defer="state.position_id" icon="style" placeholder="Cargo">
+                            <option value=""></option>
+                        @foreach($response->positions as $itemPosition)
+                            <option value="{{ $itemPosition['id'] }}">{{ $itemPosition['name'] }}</option>
+                        @endforeach
                     </x-inputs.select>
-                    @error('state.office') <span class="error">{{ $message }}</span> @enderror
+                    @error('state.position_id') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-span-12 md:col-span-3">
                     <x-inputs.input wire:model.defer="state.email" icon="person" placeholder="E-mail" />
