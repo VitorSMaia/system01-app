@@ -11,7 +11,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @livewireStyles
 </head>
-    <body>
+    <body x-data="{errorLogin: true}">
         @if(Route::currentRouteName() == 'login' && \Illuminate\Support\Facades\Auth::check() == false)
             @yield('content')
         @elseif(Route::currentRouteName() != 'login' && \Illuminate\Support\Facades\Auth::check() == true)

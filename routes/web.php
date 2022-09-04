@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\Auth\AuthController::class , 'index'])->name('login');
+Route::view('/','welcome')->name('welcome');
+
+Route::get('/login',[\App\Http\Controllers\Auth\AuthController::class , 'index'])->name('login');
+Route::post('/login/do',[\App\Http\Controllers\Auth\AuthController::class , 'login'])->name('login.do');
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('welcome','welcome')->name('welcome');
     Route::view('home','adm.home.index')->name('adm.home.index');
     Route::view('config','adm.config.index')->name('adm.config.index');
 
 
-    Route::post('/login',[\App\Http\Controllers\Auth\AuthController::class , 'login'])->name('login.do');
     Route::get('/logout',[\App\Http\Controllers\Auth\AuthController::class , 'logout'])->name('logout');
 
 

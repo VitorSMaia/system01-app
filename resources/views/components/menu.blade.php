@@ -61,7 +61,7 @@
             <a
                 class="h-16 w-full mx-auto flex flex justify-center items-center
                     w-full focus:text-orange-500 hover:bg-red-200 focus:outline-none"
-                href="{{ route('login') }}">
+                href="{{ route('logout') }}">
                 <span class="material-symbols-outlined">
                     logout
                 </span>

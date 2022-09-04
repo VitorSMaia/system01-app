@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,7 @@ class AuthController extends Controller
     public function index()
     {
         if (Auth::check() == true) {
-            return view('welcome');
+            return redirect()->route('adm.home.index');
         }
         return view('authjv.login');
     }
@@ -23,7 +24,7 @@ class AuthController extends Controller
             'password' => $request->password,
         ]);
         if (Auth::check() == true) {
-            return view('welcome');
+            return redirect()->route('adm.home.index');
         } else {
             return redirect()->back()->withInput()->withErrors(['Os dados informados não conferem']);
         }
@@ -33,7 +34,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         if (Auth::check() == false) {
-            return redirect()->route('login');
+            return redirect()->route('welcome');
         } else {
             dd('Não Deslogou');
         }
